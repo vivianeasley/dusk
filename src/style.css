@@ -1,0 +1,543 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem;
+  text-align: center;
+}
+
+.jagged {
+  -webkit-clip-path: polygon(5% 10%, 46% 1%, 46% 10%, 100% 0, 95% 90%, 31% 100%, 31% 90%, 0 100%);
+  clip-path: polygon(5% 10%, 46% 1%, 46% 10%, 100% 0, 95% 90%, 31% 100%, 31% 90%, 0 100%);
+}
+
+button {
+  transition: font-weight .1s ease, -webkit-clip-path .2s ease;
+  transition: font-weight .1s ease, clip-path .2s ease;
+  transition: font-weight .1s ease, clip-path .2s ease, -webkit-clip-path .2s ease;
+  display: inline-block;
+  padding: 1em 1.5em;
+  font-family: var(--font-main);
+  text-decoration: none;
+  text-align: center;
+  line-height: normal;
+  -webkit-appearance: none;
+  background-color: rgb(0, 61, 126);
+  color: white;
+  border: 0;
+  box-shadow: none;
+}
+button:hover {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 800;
+  background-color: #646cff;
+  -webkit-clip-path: polygon(5% 10%, 66% 1%, 66% 10%, 100% 0, 95% 90%, 51% 100%, 51% 90%, 0 100%);
+  clip-path: polygon(5% 10%, 66% 1%, 66% 10%, 100% 0, 95% 90%, 51% 100%, 51% 90%, 0 100%);
+
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.enable-transitions {
+  transition: transform 200ms ease;
+}
+
+.disable-button {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.void-phase {
+  background-color: rgb(110, 0, 0);
+}
+
+.ui-wrapper {
+  opacity: 0;
+}
+
+.last-line {
+  opacity: 0;
+}
+
+.last-line.visible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+/* area-wrappers */
+.area-wrappers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* TODO: 100% at smaller widths */
+  width: 50%;
+}
+
+
+/* phases-wrapper */
+.phases-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.phase-wrapper {
+  padding: 0.2rem 0.4rem 0 0.4rem;
+  min-width: 3rem;
+}
+
+.phase-wrapper.active {
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+/* game-area-wrapper */
+.game-area-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+/* deck-dealt-wrapper */
+
+.deck-dealt-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Deck */
+.deck-wrapper {
+  width: 9rem;
+  height: 13.5rem;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.deck-wrapper .deck-card-wrapper {
+  position: absolute;
+}
+
+/* Piles */
+.pile-wrapper {
+  width: 9rem;
+  height: 13.5rem;
+  background-color: rgba(128, 128, 128, 0.352);
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  border-radius: 8px;
+}
+
+.pile-wrapper .pile {
+  position: absolute;
+}
+
+
+/* play-area-wrapper */
+.play-area-wrapper {
+  background: linear-gradient(0deg,rgb(0 0 0) 0%, rgba(6, 14, 42, 1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border: 1px solid white;
+  border-radius: 8px;
+  
+}
+
+.play-area-min-height {
+  min-height: 20rem;
+}
+
+.flex-row-top {
+  display: flex;
+  gap: 1rem;
+  
+}
+
+.play-area-header {
+  text-align: left;
+  font-weight: bold;
+  padding-left: 0.3rem;
+}
+
+.play-area-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.played {
+  opacity: 0.2
+}
+
+.play-area-bod-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-height: 216px;
+}
+
+/* Game styles*/
+
+.card-container {
+  width: 9rem;
+  height: 13.5rem;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 350ms ease-in-out;
+  
+  border-radius: 10px;
+  /* optional: helps some GPUs */
+  will-change: transform;
+}
+
+/* Face-up shows front; face-down shows back */
+.face-up .card   { transform: rotateY(0deg); }
+.face-down .card { transform: rotateY(180deg); }
+.face-up .card,
+.face-down .card { transform-origin: 50% 50%; }
+
+/* All faces share identical geometry + Firefox fixes */
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;             /* replaces top/left/width/height */
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  /* Firefox quirk fix: give each face an explicit transform state */
+  transform: rotateY(0deg);
+}
+
+/* Front face */
+.front {
+  background: linear-gradient(0deg, rgb(0 0 0) 0%, rgba(6,14,42,1) 100%);
+  color: white;
+  z-index: 2;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  border: 2px solid #202020;
+}
+.front.rift  { background: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(69, 0, 0) 100%); }
+.front.echo  { background: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(0, 19, 87) 100%); }
+.front.omen  { background: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(50, 50, 50) 100%); }
+.front.multi { background: linear-gradient(0deg, rgb(0 0 0) 0%, rgb(88, 72, 0) 100%); }
+
+/* Back face: same geometry, rotated 180 so it faces “out” when the card flips */
+.back {
+  /* IMPORTANT: rotate the back face itself */
+  transform: rotateY(180deg);
+  display: grid;            /* easy centering; optional */
+  place-items: center;
+  background: #5b5b5b;        /* give it a real background to avoid bleed */
+}
+
+.back-pattern {
+  width: 160px;
+  height: 240px;
+  pointer-events: none;
+  transform: translate(-7px, -9px);
+}
+
+.card-name,
+.card-type {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  font-weight: normal;
+}
+
+.card-image {
+  max-width: 85px;
+}
+
+.card-type {
+  margin-top: -16px;
+  font-weight: bold;
+}
+
+.card-rules {
+  padding: 3px;
+}
+
+.card-inner-front {
+  font-size: 0.7rem;
+  position: relative;
+}
+
+
+.active-card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.active-card-wrapper .pile {
+  transform: scale(1.6);
+}
+
+.dialog-wrapper {
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem
+}
+
+.dialog-wrapper.hidden {
+  display: none
+}
+
+.dialog {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%;
+  max-width: 40rem; */
+  padding: 2rem;
+  gap: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.dialog-areas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dialog-ui {
+  margin: 2rem 0 0 0;
+}
+
+.game-rules-wrapper {
+  text-align: left;
+  padding: 1rem;
+  background-color: #000000;
+  max-width: 600px;
+}
+
+
+
+#eyes {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.eyes-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.eye-wrapper {
+  width: 150px;
+  height: 116px;
+  overflow: hidden;
+  position: relative;
+}
+
+.eye-background {
+  position: absolute;
+  bottom: -41px;
+  left: -155px;
+}
+
+.eye-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  aspect-ratio: 100 / 100; /* match viewBox w:h */
+  height: auto;  
+}
+
+.number-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.deck-card-wrapper { position: relative; }
+.deck-card-wrapper.dnd-insert-before::before,
+.deck-card-wrapper.dnd-insert-after::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.35;
+}
+.deck-card-wrapper.dnd-insert-before::before { top: -1px; }
+.deck-card-wrapper.dnd-insert-after::after  { bottom: -1px; }
+
+
+
+
+
+
+.pulse-border {
+  border: 5px solid #3498db;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 1);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(52, 152, 219, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+
+@media (max-width: 480px) {
+  #app {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .flex-row-top {
+    flex-direction: column;
+  }
+
+  .play-area-wrapper {
+      width: 100%;
+  }
+
+  .back-pattern {
+    display: none
+  }
+}
+
+
+
+
+
