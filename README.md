@@ -1,4 +1,7 @@
 # Dusk
+
+Unfortunetly, after submission to JSK13 I realized that the work I did to make the grpahics browser cross-compatablbe broke the graphics hard on montiors of different aspect ratios. I have removed the browser cross-compatability fixes so the link below works best on Chrome.
+
 ### Game Description
 This is a two-player drafting card game, available both as a print-and-play and as a digital experience. Print the PDF from the GitHub repo to play with friends, or face the Void in the video game version trapped together at the edge of night. The shared deck holds 49 cards, built from 9 distinct designs.
 
